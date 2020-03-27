@@ -4,7 +4,7 @@ module.exports = {
         const {id} = request.body;
         const ong = await connection('ongs')
             .where({id : id})
-            .first();
+            .first('name');
             if(!ong){
                 return response.status(400).json({error : "não encontrado"})
             }
